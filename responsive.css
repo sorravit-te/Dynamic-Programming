@@ -10,7 +10,7 @@
   }
 
    .content-wrapper {
-    transform: scale(0.6);
+    transform: scale(0.7);
     transform-origin: top center; 
     max-width: 100%;
     overflow-x: hidden;
