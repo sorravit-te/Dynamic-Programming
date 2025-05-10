@@ -7,6 +7,11 @@ body {
     font-family: "Noto Sans Thai", sans-serif;
     background: linear-gradient(135deg, #ffffff, #edf2fa);
   }
+
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
   
 /*-- หมายเหตุ: ส่วนนี้คือ รูปภาพแบนเนอร์ --*/
 .top-banner img {
