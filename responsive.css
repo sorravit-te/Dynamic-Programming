@@ -1,15 +1,13 @@
-html, body {
+@media (max-width: 768px) {
+
+  html, body {
   overflow-x: hidden;
   width: 100%;
 }
 
-@media (max-width: 768px) {
-
    #main-content {
-    transform: scale(0.5); 
-    transform-origin: top center;
-    max-width: 100%;
-    overflow-x: hidden;
+  max-width: 100%;
+  overflow-x: hidden;
   }
 
   .top-bar {
