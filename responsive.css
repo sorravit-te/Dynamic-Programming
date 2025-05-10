@@ -1,4 +1,14 @@
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 @media (max-width: 768px) {
+
+  #main-content {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
 
   .top-bar {
     padding: 10px;
@@ -17,9 +27,10 @@
 
   .zoom-controls {
     top: 80px;
-    right: 20px;
+    right: 10px;
     flex-direction: row;
-    gap: 8px;
+    gap: 6px;
+    transform: scale(0.9);
   }
 
   .zoom-controls button {
@@ -30,7 +41,8 @@
 
   #toggle-theme {
     top: 20px;
-    right: 20px;
+    right: 10px;
+    transform: scale(0.9);
   }
   
   .author-container2,
@@ -49,6 +61,8 @@
 
   table {
     font-size: 12px;
+    min-width: unset;
+    width: 100%;
   }
 
   .tab-btn,
