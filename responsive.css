@@ -4,8 +4,14 @@ html, body {
 }
 
 @media (max-width: 768px) {
+  
+  body {
+    zoom: 1 !important;
+  }
 
-  #main-content {
+   #main-content {
+    transform: scale(0.9); 
+    transform-origin: top center;
     max-width: 100%;
     overflow-x: hidden;
   }
