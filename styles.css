@@ -919,14 +919,6 @@ body.dark-mode #confirm-modal .modal-buttons button:hover {
 }
 
 /*-- ==================== Responsive ==================== --*/
-
-.left, .center {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 20px;
-  width: 100%;
-}
-
 @media (max-width: 768px) {
 
   .top-bar {
