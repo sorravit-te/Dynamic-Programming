@@ -10,7 +10,7 @@ html, body {
   }
 
    #main-content {
-    transform: scale(0.9); 
+    transform: scale(0.5); 
     transform-origin: top center;
     max-width: 100%;
     overflow-x: hidden;
