@@ -56,7 +56,7 @@ function showSection(sectionId) {
   }
 }
 
-
+// -- เมนูย่อยในหน้า Brute Force -- //
 function showMyAlgorithmContent(contentId) {
   const contents = document.querySelectorAll(".myalgo-content");
   contents.forEach(content => content.classList.remove("active"));
@@ -76,6 +76,7 @@ function showMyAlgorithmContent(contentId) {
   if (clicked) clicked.classList.add("active");
 }
 
+// -- เมนูย่อยในหน้า Dynamic Programming -- //
 function showCompareContent(contentId) {
   const contents = document.querySelectorAll(".compare-content");
   contents.forEach(content => content.classList.remove("active"));
@@ -90,6 +91,20 @@ function showCompareContent(contentId) {
   if (clicked) clicked.classList.add("active");
 }
 
+// -- เมนูย่อยในหน้า Applied -- //
+function showAppliedContent(contentId) {
+  const contents = document.querySelectorAll(".applied-content");
+  contents.forEach(content => content.classList.remove("active"));
+
+  const target = document.getElementById(contentId);
+  if (target) target.classList.add("active");
+
+  const buttons = document.querySelectorAll(".tab-btn-applied");
+  buttons.forEach(btn => btn.classList.remove("active"));
+
+  const clicked = document.querySelector(`.tab-btn-applied[onclick="showAppliedContent('${contentId}')"]`);
+  if (clicked) clicked.classList.add("active");
+}
 
 function scrollToTop() {
   window.scrollTo({
@@ -495,6 +510,3 @@ videoFrame.srcdoc = `
     </body>
   </html>
 `;
-
-
-
