@@ -12,7 +12,7 @@ html, body {
   overflow-x: hidden;
   width: 100%;
 }
-  
+
 /*-- หมายเหตุ: ส่วนนี้คือ รูปภาพแบนเนอร์ --*/
 .top-banner img {
   width: 100%;
@@ -124,9 +124,13 @@ html, body {
   transition: background-color 0.2s ease;
 }
 .menu li a:hover {
-  background-color: #f0f0f0;
+  background-color: #dfeaf9;
   border-radius: 4px;
 }
+nav ul.menu li a.active {
+    border-bottom: 2px solid #0077cc;
+    color: #0077cc;
+  }
 
 
   /* ทำให้แถบเมนูอยู่กลาง */
@@ -444,10 +448,10 @@ td {
 /* .txt */
 .download-btn {
   display: inline-block;
-  background-color: #57c45b;
+  background-color: #73bae6;
   color: rgb(255, 255, 255);
   padding: 12px 24px;
-  margin-top: 20px;
+  margin-top: 2px;
   text-decoration: none;
   font-weight: bold;
   border-radius: 8px;
@@ -455,7 +459,7 @@ td {
 }
 
 .download-btn:hover {
-  background-color: #45a049;
+  background-color: #2a8ecd;
 }
 
 /* ตัวเลขหัวข้อต่างๆ */
@@ -814,6 +818,17 @@ body.dark-mode .footer {
   color: #e2e8f0;
 }
 
+/* Run Again ใน Dark Mode */
+body.dark-mode .recalculate-btn {
+  background-color: #334155;
+  color: #e2e8f0;
+  border: none;
+}
+
+body.dark-mode .recalculate-btn:hover {
+  background-color: #475569;
+}
+
 /*-- หมายเหตุ: ส่วนนี้คือ ปุ่มดาวโหลด .txt ใน Dark Mode --*/
 body.dark-mode .download-btn {
   background-color: #334155;
@@ -824,8 +839,6 @@ body.dark-mode .download-btn {
 body.dark-mode .download-btn:hover {
   background-color: #475569;
 }
-
-
 
 /*-- หมายเหตุ: ส่วนนี้คือ ป๊อบอัพกดยืนยันดาวโหลด --*/
 .modal {
@@ -921,4 +934,47 @@ body.dark-mode #confirm-modal .modal-buttons button:hover {
     opacity: 0;
     transform: scale(0.9);
   }
+}
+
+
+/* เมนูย่อยใน Applied */
+.applied-content {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  position: relative;
+  height: 0;
+  overflow: hidden;
+}
+
+.applied-content.active {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  height: auto;
+  overflow: visible;
+}
+
+.tab-btn-applied {
+  background-color: #f1f5f9;
+  color: #1e293b;
+  border: none;
+  padding: 14px 32px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: Noto Sans Thai;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.tab-btn-applied:hover {
+  background-color: #e2e8f0;
+}
+
+.tab-btn-applied.active {
+  background-color: #c9e5f7;
+  color: rgb(0, 0, 0);
 }
