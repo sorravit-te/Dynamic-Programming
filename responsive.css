@@ -51,7 +51,30 @@
     right: 10px;
     transform: scale(0.9);
   }
-  
+  /*-- หมายเหตุ: ส่วนนี้คือ Make by --*/
+  .author-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+    .author-image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+    .author-image img {
+    width: 60%;
+    max-width: 280px;
+    margin-bottom: 15px;
+    height: auto;
+  }
+  .author-text {
+    text-align: center;
+    font-size: 14px;
+    padding-bottom: 30px;
+  }
+  /*-----------------------------*/
+
   .author-container2,
   .author-container3,
   .author-container4 {
