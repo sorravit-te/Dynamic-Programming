@@ -67,16 +67,15 @@
     <nav>
       <ul class="menu">
         <li><a onclick="showSection('business problems')" class="active">Business Problems</a></li>
-        <li><a onclick="showSection('compare algorithms')">Compare Algorithms</a></li>
-        <li><a onclick="showSection('my algorithm')">Algorithm</a></li>
+        <li><a onclick="showSection('compare algorithms')">Brute Force</a></li>
+        <li><a onclick="showSection('my algorithm')">Dynamic Programming</a></li>
         <li><a onclick="showSection('applied')">Applied</a></li>
-        <li><a onclick="showSection('resource')">Resource</a></li>
-        <li><a onclick="showSection('video present')">Video Present</a></li>
         <li><a onclick="showSection('make by')">Make By</a></li>
       </ul>
     </nav>
   </header>
 
+  <div class="scaled-wrapper">
   <div class="content-wrapper">
   <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Business Problems -->
   <section id="business problems" class="active">
@@ -159,7 +158,7 @@
     </div>
   </section>
 
-  <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Compare Algorithms -->
+  <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Brute Force -->
   <section id="compare algorithms">
     <div class="left">
       <nav class="sub-menu">
@@ -291,7 +290,7 @@
   </section>
   
 
-  <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Algorithm -->
+  <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Dynamic Programming -->
   <section id="my algorithm">
     <div class="left">
       <nav class="sub-menu">
@@ -301,7 +300,6 @@
         </ul>
       </nav>
   
-
       <div id="myalgo" class="myalgo-content active"> <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า My Algorithm -->
         <h2 class="subheading">Dynamic Programming (DP)</h2>
           <blockquote class="explain-block">
@@ -473,111 +471,108 @@
   <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Applied -->
   <section id="applied">
     <div class="left">
-      <h2>เปรียบเทียบระหว่าง Brute Force กับ DP</h2>
+      <nav class="sub-menu">
         <ul>
-          <li>Brute Force : ต้องลองเลือก "ทุก subset ของร้านค้า" (เช่นเลือก/ไม่เลือกทุกร้านไปเรื่อย ๆ)</li>
-          <li>Dynamic Programming : จำผลลัพธ์ย่อยเอาไว้, ไม่ต้องทำซ้ำซ้อน → เร็วกว่าหลายสิบหลายร้อยเท่า</li>
+          <li><button onclick="showAppliedContent('compare')" class="tab-btn-applied active">Compare</button></li>
+          <li><button onclick="showAppliedContent('video')" class="tab-btn-applied">Video</button></li>
         </ul>
-        <table>
+      </nav>
+
+      <div id="compare" class="applied-content active"> <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Compare -->
+        <h2>เปรียบเทียบระหว่าง Brute Force กับ DP</h2>
+          <ul>
+            <li>Brute Force : ต้องลองเลือก "ทุก subset ของร้านค้า" (เช่นเลือก/ไม่เลือกทุกร้านไปเรื่อย ๆ)</li>
+            <li>Dynamic Programming : จำผลลัพธ์ย่อยเอาไว้, ไม่ต้องทำซ้ำซ้อน → เร็วกว่าหลายสิบหลายร้อยเท่า</li>
+          </ul>
+          <table>
+            <thead>
+              <tr>
+                <th>ประเด็น</th>
+                <th>Brute Force</th>
+                <th>Dynamic Programming</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>วิธีทำงาน</td><td>ลอง "ทุกรูปแบบที่เป็นไปได้"</td><td>ใช้การ "จำคำตอบย่อย" (memoization) มาต่อกัน</td></tr>
+              <tr><td>จำนวนคำตอบที่ต้องเช็ค</td><td>2^n กรณี</td><td>n×w กรณี</td></tr>
+              <tr><td>เวลาทำงาน (Time Complexity)</td><td>O(2^n)</td><td>O(n×w)</td></tr>
+              <tr><td>หน่วยความจำที่ใช้ (Memory)</td><td>น้อย (แต่แลกกับช้า)</td><td>ต้องใช้ตาราง DP (พื้นที่มากขึ้นนิดนึง)</td></tr>
+              <tr><td>ข้อเสีย</td><td>ช้ามากเมื่อจำนวนร้านเพิ่มขึ้น</td><td>ใช้ memory เพิ่ม แต่ยังคุ้มถ้า w ไม่ใหญ่มาก</td></tr>
+            </tbody>
+          </table>
+
+        <h2 class="subheading">สรุปว่าทำไม DP ดีกว่า Brute Force</h2>
+        <p>ในการแก้ปัญหาการเลือกพื้นที่ให้เช่าภายในห้างสรรพสินค้า เพื่อให้ได้รายได้ค่าเช่าสูงสุดภายใต้ข้อจำกัดด้านพื้นที่ 
+          การเลือกวิธีการแก้ปัญหาที่มีประสิทธิภาพ ค่อนข้างมีความสำคัญ เนื่องจากจำนวนตัวเลือก (ร้านค้า) ที่เพิ่มขึ้นเพียงเล็กน้อย 
+          อาจทำให้เวลาคำนวณเพิ่มขึ้นอย่างมหาศาลได้ </p>
+        <p>สองแนวทางหลักที่สามารถใช้แก้ปัญหานี้ได้คือ Brute Force และ Dynamic Programming (DP) 
+          ซึ่งเมื่อนำมาเปรียบเทียบกัน จะเห็นได้อย่างชัดเจนว่า Dynamic Programming มีข้อได้เปรียบเหนือ 
+          Brute Force หลายประการ ดังนี้</p>
+          <ol class="resource-list">
+            <li>ความเร็วในการทำงานที่เหนือกว่า</li>
+            <li>ประหยัดการคำนวณซ้ำซ้อน</li>
+            <li>รองรับการขยายขนาดข้อมูล</li>
+            <li>ความสามารถในการใช้งานจริง</li>
+          </ol>
+          
+        <div class="heading-with-button">
+          <h2 class="subheading">ยกตัวอย่างเวลารันจริง (กรณี 20 ร้าน)</h2>
+          <button id="recalculate-btn" class="recalculate-btn" onclick="recalculateRunTime()"><b>Run Again</b></button>
+        </div>
+
+        <table class="compare-table">
           <thead>
             <tr>
-              <th>ประเด็น</th>
-              <th>Brute Force</th>
-              <th>Dynamic Programming</th>
+              <th>Algorithm</th>
+              <th>Run time (ms)</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>วิธีทำงาน</td><td>ลอง "ทุกรูปแบบที่เป็นไปได้"</td><td>ใช้การ "จำคำตอบย่อย" (memoization) มาต่อกัน</td></tr>
-            <tr><td>จำนวนคำตอบที่ต้องเช็ค</td><td>2^n กรณี</td><td>n×w กรณี</td></tr>
-            <tr><td>เวลาทำงาน (Time Complexity)</td><td>O(2^n)</td><td>O(n×w)</td></tr>
-            <tr><td>หน่วยความจำที่ใช้ (Memory)</td><td>น้อย (แต่แลกกับช้า)</td><td>ต้องใช้ตาราง DP (พื้นที่มากขึ้นนิดนึง)</td></tr>
-            <tr><td>ข้อเสีย</td><td>ช้ามากเมื่อจำนวนร้านเพิ่มขึ้น</td><td>ใช้ memory เพิ่ม แต่ยังคุ้มถ้า w ไม่ใหญ่มาก</td></tr>
+            <tr>
+              <td>Brute Force</td>
+              <td id="brute-runtime">-</td>
+            </tr>
+            <tr>
+              <td>Dynamic Programming (DP)</td>
+              <td id="dp-runtime">-</td>
+            </tr>
           </tbody>
         </table>
 
-      <h2 class="subheading">สรุปว่าทำไม DP ดีกว่า Brute Force</h2>
-      <p>ในการแก้ปัญหาการเลือกพื้นที่ให้เช่าภายในห้างสรรพสินค้า เพื่อให้ได้รายได้ค่าเช่าสูงสุดภายใต้ข้อจำกัดด้านพื้นที่ 
-         การเลือกวิธีการแก้ปัญหาที่มีประสิทธิภาพ ค่อนข้างมีความสำคัญ เนื่องจากจำนวนตัวเลือก (ร้านค้า) ที่เพิ่มขึ้นเพียงเล็กน้อย 
-         อาจทำให้เวลาคำนวณเพิ่มขึ้นอย่างมหาศาลได้ </p>
-      <p>สองแนวทางหลักที่สามารถใช้แก้ปัญหานี้ได้คือ Brute Force และ Dynamic Programming (DP) 
-         ซึ่งเมื่อนำมาเปรียบเทียบกัน จะเห็นได้อย่างชัดเจนว่า Dynamic Programming มีข้อได้เปรียบเหนือ 
-         Brute Force หลายประการ ดังนี้</p>
-        <ol class="resource-list">
-          <li>ความเร็วในการทำงานที่เหนือกว่า</li>
-          <li>ประหยัดการคำนวณซ้ำซ้อน</li>
-          <li>รองรับการขยายขนาดข้อมูล</li>
-          <li>ความสามารถในการใช้งานจริง</li>
-        </ol>
-        
-      <div class="heading-with-button">
-        <h2 class="subheading">ยกตัวอย่างเวลารันจริง (กรณี 20 ร้าน)</h2>
-        <button id="recalculate-btn" class="recalculate-btn" onclick="recalculateRunTime()"><b>Run Again</b></button>
+        <p>ไฟล์ .txt ของตัวเลขพื้นที่ที่ต้องการ และค่าเช่าที่เสนอ (กรณี 20 ร้าน)</p>
+          <div class="download-container">
+            <a href="resource/spaces.txt" download class="download-btn download-txt">spaces.txt</a>
+            <a href="resource/rents.txt" download class="download-btn download-txt">rents.txt</a>
+          </div>
+      </div> 
+
+      <div id="video" class="applied-content">
+        <div class="center">
+          <h1>วิดีโออธิบายหลักการทำงาน</h1>
+          <div class="video-wrapper">
+            <iframe id="video-frame" style="width: 100%; aspect-ratio: 16/9; border: none;"></iframe>
+          </div>
+        </div>
       </div>
 
-      <table class="compare-table">
-        <thead>
-          <tr>
-            <th>Algorithm</th>
-            <th>Run time (ms)</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Brute Force</td>
-            <td id="brute-runtime">-</td>
-          </tr>
-          <tr>
-            <td>Dynamic Programming (DP)</td>
-            <td id="dp-runtime">-</td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </section>
-
-
-  <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Resource -->
-  <section id="resource">
-    <div class="center">
-      <h2>ข้อมูลตัวเลขของผู้สนใจเช่าห้าง</h2>
-      <p>ไฟล์ .txt ของตัวเลขพื้นที่ที่ต้องการ และค่าเช่าที่เสนอ (กรณี 20 ร้าน)</p>
-
-      <div class="download-container">
-        <a href="resource/spaces.txt" download class="download-btn download-txt">spaces.txt</a>
-        <a href="resource/rents.txt" download class="download-btn download-txt">rents.txt</a>
-      </div>      
-    </div>
-  </section>
-
-
-  <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Video Present -->
-  <section id="video present">
-    <div class="center">
-      <h1>วิดีโออธิบายหลักการทำงาน</h1>
-
-      <div class="video-wrapper">
-        <iframe id="video-frame" style="width: 100%; aspect-ratio: 16/9; border: none;"></iframe>
-      </div>
-        
-    </div>
-  </section>
-
 
   <!-- หมายเหตุ: ส่วนนี้คือข้อมูลในหน้า Make By -->
   <section id="make by">
     <div class="author-container">
       <div class="author-image">
-        <img src="images/te.png" alt="te" />
+          <img src="images/te.png" alt="te" />
       </div>
+      
       <div class="author-text">
         <h2>จัดทำโดย</h2>
         <blockquote class="explain-block">
-          <p>นายสรวิชญ์ สิทธิสุทธิ์ ( เต้ )</p>
-          <p><span style="white-space: nowrap;">
-            คณะสหวิทยาการ <br>สาขาวิทยาศาสตร์และนวัตกรรมข้อมูล</br>
-            </span>
-            มหาวิทยาลัยธรรมศาสตร์</p>          
-          <p>รหัสนักศึกษา : 6724650103</p>
+          <p>นายสรวิชญ์ สิทธิสุทธิ์ 
+          <br>( เต้ )</br></p>
+          <p>คณะสหวิทยาการ
+          <br>สาขาวิทยาศาสตร์และนวัตกรรมข้อมูล</br></p>
+          <p>มหาวิทยาลัยธรรมศาสตร์</p>          
         </blockquote>
       </div>
     </div>
@@ -592,7 +587,7 @@
     <p>Make by Sorravit Sitthisut</p>
   </footer>
 
-  
+</div >
 </div > <!-- หมายเหตุ: </div > นี้คือปิดเนื้อหาแบบสมบูรณ์ -->
 
   <script>
