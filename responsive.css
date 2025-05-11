@@ -138,14 +138,16 @@
 
 /*-- หมายเหตุ: ส่วนนี้คือ ป๊อปอัพดาวโหลด --*/
   .modal {
-    zoom: 1.47 !important;
+    zoom: 1.5 !important;
     transform: none !important;
-    padding: 0 0px;
+    left: -18px;
+    top: -5%;
   }
   .modal-content {
     max-width: 220px;
     padding: 12px 5px;  
     font-size: 10px;
+    text-align: center;
   }
   .modal-content button {
     font-size: 10px;
