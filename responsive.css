@@ -141,12 +141,12 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 110vw;
-    height: 114vh;
+    width: 115vw;
+    height: 100vh;
     display: none;
     justify-content: center;
     align-items: center;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0);
     z-index: 10000;
   }
   .modal-content {
